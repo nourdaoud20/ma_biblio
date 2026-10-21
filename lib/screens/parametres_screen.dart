@@ -7,9 +7,8 @@ class ParametresScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Paramètres')),
-      body: Column(
+      body: ListView(
         children: [
-          // Q1.1 & Q1.2 : Mon profil avec SnackBar
           ListTile(
             leading: const Icon(Icons.person),
             title: const Text('Mon profil'),
@@ -21,8 +20,6 @@ class ParametresScreen extends StatelessWidget {
               );
             },
           ),
-
-          // Q1.5 : Notifications personnalisées
           ListTile(
             leading: const Icon(Icons.notifications),
             title: const Text('Notifications'),
@@ -34,8 +31,6 @@ class ParametresScreen extends StatelessWidget {
             ),
             onTap: () {},
           ),
-
-          // Q1.3 : Langue
           ListTile(
             leading: const Icon(Icons.language),
             title: const Text('Langue'),
@@ -43,11 +38,6 @@ class ParametresScreen extends StatelessWidget {
             trailing: const Icon(Icons.chevron_right),
             onTap: () {},
           ),
-
-          // Q1.4 : À propos
-          // dense: true -> réduit la hauteur du ListTile
-          // isThreeLine: true -> permet d'avoir 2 lignes de sous-titre
-          // enabled: false -> désactive le clic et grise le texte
           const ListTile(
             leading: Icon(Icons.info),
             title: Text('À propos'),
