@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'screens/catalogue_screen.dart';
+import 'screens/galerie_screen.dart';
 import 'screens/ma_liste_screen.dart';
 import 'screens/parametres_screen.dart';
 
@@ -30,9 +32,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
 
-  // Les écrans associés aux onglets
+  // Les 3 écrans principaux du TP
   final List<Widget> _ecrans = const [
     CatalogueScreen(),
+    GalerieScreen(),
     MaListeScreen(),
   ];
 
@@ -40,7 +43,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_currentIndex == 0 ? 'Catalogue' : 'Ma liste de lecture'),
+        title: Text(
+          _currentIndex == 0
+              ? 'Catalogue'
+              : _currentIndex == 1
+              ? 'Galerie'
+              : 'Ma liste',
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),
@@ -67,6 +76,10 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.menu_book),
             label: 'Catalogue',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.grid_view),
+            label: 'Galerie',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.checklist),
